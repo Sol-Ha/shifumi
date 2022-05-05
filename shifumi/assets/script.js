@@ -20,24 +20,38 @@ const rock = document.getElementById('rock')
 const playerScore = document.getElementById('player_score')
 const computerScore = document.getElementById('computer_score')
 
+// making a function to factorise the choice and math random in one simple go
+function choiceCard(constant,card) {
+    constant.addEventListener('click', () => {
+        player.cardPlayed = card;
+        computer.cardPlayed = choose[Math.Random(3)];
+    });
+};
+// choiceCard to call out in one go what's clickable
+choiceCard(scissors,'scissors');
+choiceCard(paper,'paper');
+choiceCard(rock, 'rock');
 
 // making the pictures usable via a click for the player
 // choose with math.random
-scissors.addEventListener('click', () => {
-    player.cardPlayed = 'scissors';
-    computer.cardPlayed = choose[Math.Random(3)];
-})
-paper.addEventListener('click', () => {
-    player.cardPlayed = 'paper';
-    computer.cardPlayed = choose[Math.Random(3)];
-})
-rock.addEventListener('click', () => {
-    player.cardPlayed = 'rock';
-    computer.cardPlayed = choose[Math.Random(3)];
-})
+
+// scissors.addEventListener('click', () => {
+//     player.cardPlayed = 'scissors';
+//     computer.cardPlayed = choose[Math.Random(3)];
+
+// paper.addEventListener('click', () => {
+//     player.cardPlayed = 'paper';
+//     computer.cardPlayed = choose[Math.Random(3)];
+// })
+
+// rock.addEventListener('click', () => {
+//     player.cardPlayed = 'rock';
+//     computer.cardPlayed = choose[Math.Random(3)];
+// })
 
 
 // shifumi's rule = play
+// can use a switch to make it simple
 function play() {
     if (player.cardPlayed === 'scissors' && computer.cardPlayed === 'paper') {
         return win;
